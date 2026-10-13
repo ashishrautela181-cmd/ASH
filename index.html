@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stride — Shoes Built to Move</title>
+  <meta name="description" content="Stride is a one-page shoe store: sneakers, runners, boots and casuals." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="logo">Stride<span>.</span></a>
+
+      <nav id="nav-menu" class="nav-links" aria-label="Main">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#features">Why Stride</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="cart-btn" class="cart-btn" aria-label="Open cart">
+          🛒 <span id="cart-count" class="cart-count">0</span>
+        </button>
+        <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">New Season Collection</p>
+          <h1>Step into <em>no comfort</em>.<br />Run into style.</h1>
+          <p class="lead">Lightweight, durable and made for every kind of day — from the morning run to the evening out.</p>
+          <div class="hero-cta">
+            <a href="#shop" class="btn btn-primary">Shop Now</a>
+            <a href="#features" class="btn btn-ghost">Learn More</a>
+          </div>
+          <ul class="stats">
+            <li><strong>50k+</strong><span>Happy customers</span></li>
+            <li><strong>4.8★</strong><span>Average rating</span></li>
+            <li><strong>30 days</strong><span>Free returns</span></li>
+          </ul>
+        </div>
+        <div class="hero-visual" id="hero-shoe" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Shop -->
+    <section id="shop" class="section">
+      <div class="container">
+        <h2 class="section-title">Our Shoes</h2>
+        <p class="section-sub">Pick a category or browse them all.</p>
+
+        <div class="filters" role="group" aria-label="Filter shoes">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="sneakers">Sneakers</button>
+          <button class="filter" data-filter="running">Running</button>
+          <button class="filter" data-filter="boots">Boots</button>
+          <button class="filter" data-filter="casual">Casual</button>
+        </div>
+
+        <div id="product-grid" class="product-grid"></div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">Why Stride</h2>
+        <div class="features">
+          <article class="feature">
+            <div class="icon">⚡</div>
+            <h3>Featherlight</h3>
+            <p>Foam midsoles that stay light mile after mile.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">🌿</div>
+            <h3>Eco-minded</h3>
+            <p>Made with recycled materials and plastic-free packaging.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">🛡️</div>
+            <h3>Built to last</h3>
+            <p>Reinforced stitching and grippy outsoles for all terrains.</p>
+          </article>
+          <article class="feature">
+            <div class="icon">🚚</div>
+            <h3>Fast delivery</h3>
+            <p>Free shipping on orders above ₹2,999 across India.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="section">
+      <div class="container">
+        <h2 class="section-title">What People Say</h2>
+        <div class="reviews">
+          <blockquote class="review">
+            <p>“Most comfortable running shoes I've owned. Wore them for a half marathon with zero blisters.”</p>
+            <footer>— Aarav S. ★★★★★</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>“The Urban Low goes with everything. Great value and they look even better in person.”</p>
+            <footer>— Meera K. ★★★★★</footer>
+          </blockquote>
+          <blockquote class="review">
+            <p>“Trail boots kept my feet dry through a whole monsoon trek. Highly recommend.”</p>
+            <footer>— Rohan P. ★★★★☆</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter / Contact -->
+    <section id="contact" class="section newsletter">
+      <div class="container">
+        <h2 class="section-title">Get 10% off your first pair</h2>
+        <p class="section-sub">Join our list for drops, deals and style tips.</p>
+        <form id="newsletter-form" class="newsletter-form" novalidate>
+          <label for="email" class="sr-only">Email address</label>
+          <input type="email" id="email" placeholder="you@example.com" required />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+        <p id="form-msg" class="form-msg" role="status"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Stride. All rights reserved.</span>
+      <span>Made for movers everywhere.</span>
+    </div>
+  </footer>
+
+  <!-- Cart drawer -->
+  <div id="overlay" class="overlay"></div>
+  <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping cart" aria-hidden="true">
+    <div class="cart-head">
+      <h3>Your Cart</h3>
+      <button id="cart-close" class="icon-btn" aria-label="Close cart">✕</button>
+    </div>
+    <ul id="cart-items" class="cart-items"></ul>
+    <div class="cart-foot">
+      <div class="cart-total"><span>Total</span><strong id="cart-total">₹0</strong></div>
+      <button id="checkout-btn" class="btn btn-primary btn-block">Checkout</button>
+      <button id="clear-btn" class="btn btn-ghost btn-block">Clear cart</button>
+    </div>
+  </aside>
+
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
